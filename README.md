@@ -3,17 +3,18 @@
 
 ## TODO
 
-- [] Install Core Dependencies: recharts for graphs, tanstack for data fetching
-- [] Eslint, Prettier configuration (add prettier tailwind plugin for better class order)
+- [x] Install Core Dependencies: recharts for graphs, tanstack for data fetching
+- [x] Eslint, Prettier configuration (add prettier tailwind plugin for better class order)
 - [] Credential information handling (ENV)
-- [] Set Up TanStack Query for state management
+- [x] Set Up TanStack Query for state management
+- [] Use Zustand for better state management?
 - [] Start fetching data from API 
 - [] Build chart component
 - [] Build prefecture checkbox component
 - [] Build category select component 
 - [] Error handling
 - [] Adjust layout and responsiveness
-- [] Write Test
+- [] Write Tests
 - [] Deployment
 
 ## Key Point Checklist
