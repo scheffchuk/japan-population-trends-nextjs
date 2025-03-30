@@ -4,6 +4,7 @@ import "./globals.css";
 
 import QueryProvider from "@/providers/query-provider";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} flex min-h-screen flex-col antialiased`}
       >
+        <Header />
         <main className="flex-grow">
           <QueryProvider>{children}</QueryProvider>
         </main>

@@ -4,10 +4,15 @@ import { getPopulationData } from "@/queries/get-population-data";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
-export default function DisplayPopulationData() {
+export default function PopulationDataCard({
+  prefCode,
+}: {
+  prefCode: number;
+}) {
   const { data, error, isLoading } = useQuery({
-    queryKey: ["populationData", 13],
-    queryFn: () => getPopulationData(13),
+    queryKey: ["populationData", prefCode],
+    queryFn: () => getPopulationData(prefCode),
+    enabled: typeof prefCode === "number" && prefCode > 0,
   });
 
   if (isLoading) {

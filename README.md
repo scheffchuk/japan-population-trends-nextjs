@@ -6,10 +6,10 @@
 - [x] Eslint, Prettier configuration (add prettier tailwind plugin for better class order)
 - [x] Credential information handling (ENV)
 - [x] Set Up TanStack Query for state management
-- [] Use Zustand for better state management?
+- [x] Use Zustand for better state management?
 - [x] Start fetching data from API
 - [x] Successfully fetched prefectures and population data from API
-- [] Custom Hooks
+- [x] Custom Hooks
 - [] Build chart component
 - [x] Build prefecture checkbox component
 - [] Build category select component
