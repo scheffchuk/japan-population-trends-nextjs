@@ -1,6 +1,5 @@
 import DisplayPopulationData from "@/components/display-population-data";
 import DisplayPrefectures from "@/components/display-prefectures";
-import Footer from "@/components/footer";
 
 export default function Home() {
   return (
