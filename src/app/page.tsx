@@ -1,7 +1,9 @@
-import Image from "next/image";
+import DisplayPrefectures from "@/components/display-prefectures";
 
 export default function Home() {
   return (
-    <div className="flex h-screen justify-center items-center ">Let's get to work.</div>
+    <div className="flex h-screen items-center justify-center">
+      <DisplayPrefectures />
+    </div>
   );
 }

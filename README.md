@@ -6,7 +6,7 @@
 - [x] Install Core Dependencies: recharts for graphs, tanstack for data fetching
 - [x] Eslint, Prettier configuration (add prettier tailwind plugin for better class order)
 - [] Credential information handling (ENV)
-- [x] Set Up TanStack Query for state management
+- [] Set Up TanStack Query for state management
 - [] Use Zustand for better state management?
 - [] Start fetching data from API 
 - [] Build chart component
