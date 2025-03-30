@@ -12,7 +12,7 @@ export const getPopulationData = async (
       headers: {
         "X-API-KEY": process.env.X_API_KEY || "",
       },
-    },
+    }, 
   );
 
   if (!response.ok) {

@@ -1,10 +1,10 @@
 import DisplayPopulationData from "@/components/display-population-data";
-import DisplayPrefectures from "@/components/display-prefectures";
+import PrefecturesCheckbox from "@/components/prefectures-checkbox";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <DisplayPrefectures />
+      <PrefecturesCheckbox />
       <DisplayPopulationData />
     </div>
   );

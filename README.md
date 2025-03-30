@@ -1,5 +1,4 @@
-# Japan Population Trends Graph 
-
+# Japan Population Trends Graph
 
 ## TODO
 
@@ -10,11 +9,12 @@
 - [] Use Zustand for better state management?
 - [x] Start fetching data from API
 - [x] Successfully fetched prefectures and population data from API
-- [] Hooks  
+- [] Custom Hooks
 - [] Build chart component
-- [] Build prefecture checkbox component
-- [] Build category select component 
+- [x] Build prefecture checkbox component
+- [] Build category select component
 - [] Error handling
+- [] Add toast and skeleton
 - [] Adjust layout and responsiveness
 - [] Write Tests
 - [] Deployment
@@ -23,7 +23,7 @@
 
 - [x] Used React(Next.js)
 - [x] Used TypeScript
-- [] Properly type  
+- [] Properly type
 - [x] ESlint
 - [x] Prettier
 - [] Ensured ESLint and Prettier work together
@@ -33,4 +33,4 @@
 - [] Used Git with clear, meaningful commit messages
 - [] Properly tested
 - [] Set up CI/CD for linting/testing
-- [] Beautiful UI 
+- [] Beautiful UI
