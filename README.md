@@ -5,10 +5,12 @@
 
 - [x] Install Core Dependencies: recharts for graphs, tanstack for data fetching
 - [x] Eslint, Prettier configuration (add prettier tailwind plugin for better class order)
-- [] Credential information handling (ENV)
-- [] Set Up TanStack Query for state management
+- [x] Credential information handling (ENV)
+- [x] Set Up TanStack Query for state management
 - [] Use Zustand for better state management?
-- [] Start fetching data from API 
+- [x] Start fetching data from API
+- [x] Successfully fetched prefectures and population data from API
+- [] Hooks  
 - [] Build chart component
 - [] Build prefecture checkbox component
 - [] Build category select component 

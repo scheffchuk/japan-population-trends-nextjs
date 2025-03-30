@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import QueryProvider from "@/providers/query-provider";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,9 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>
-        <QueryProvider>{children}</QueryProvider>
+    <html lang="en" className="h-full">
+      <body
+        className={`${geistSans.variable} flex min-h-screen flex-col antialiased`}
+      >
+        <main className="flex-grow">
+          <QueryProvider>{children}</QueryProvider>
+        </main>
+        <Footer />
       </body>
     </html>
   );
