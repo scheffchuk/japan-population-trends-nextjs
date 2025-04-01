@@ -10,14 +10,27 @@
 - [x] Start fetching data from API
 - [x] Successfully fetched prefectures and population data from API
 - [x] Custom Hooks
-- [] Build chart component
+- [x] Build chart component
 - [x] Build prefecture checkbox component
-- [] Build category select component
+- [x] Build category select component
 - [] Error handling
-- [] Add toast and skeleton
-- [] Adjust layout and responsiveness
+- [x] Add skeleton for two main components
+- [] Add toast?
+- [x] Adjust layout and responsiveness
 - [] Write Tests
-- [] Deployment
+- [x] Deployment
+
+## Notes
+
+### 3/30 Recap
+Finished scaffolding of the app. Implemented Tanstack Query and Zustand for stage management and got the data displayed. Question: Would there be security problems with server action that I used for queries. Get the app deployed.
+
+### 3/31 Recap
+Did not make much progress. Add reset checkbox feature. Thinking should I use app route for SSR? Maybe add Zod for schema validation? 
+
+## 4/1 Recap
+Have made a lot progress today. Added line chart feature. Successfully get the server side cache working. Built skeletons for card and checkbox. Made the app a little bit not ugly.
+
 
 ## Key Point Checklist
 
@@ -26,7 +39,7 @@
 - [] Properly type
 - [x] ESlint
 - [x] Prettier
-- [] Ensured ESLint and Prettier work together
+- [x] Ensured ESLint and Prettier work together
 - [] Proper code format
 - [] View logic is separated from business logic
 - [] Used semantic HTML elements
@@ -34,3 +47,4 @@
 - [] Properly tested
 - [] Set up CI/CD for linting/testing
 - [] Beautiful UI
+

@@ -1,33 +1,33 @@
 import { create } from "zustand";
 
 type CheckedPrefecturesStore = {
-  checkedPrefectureCodes: Set<number>;
-  togglePrefectureCode: (prefCode: number) => void;
+  checkedPrefCodes: Set<number>;
+  togglePrefCode: (prefCode: number) => void;
   isChecked: (prefCode: number) => boolean;
   resetChecked: () => void;
 };
 
 const useCheckedPrefecturesStore = create<CheckedPrefecturesStore>(
   (set, get) => ({
-    checkedPrefectureCodes: new Set<number>(),
+    checkedPrefCodes: new Set<number>(),
 
-    togglePrefectureCode: (prefCode: number) => {
+    togglePrefCode: (prefCode: number) => {
       set((state) => {
-        const newCheckedPrefectureCodes = new Set(state.checkedPrefectureCodes);
-        if (newCheckedPrefectureCodes.has(prefCode)) {
-          newCheckedPrefectureCodes.delete(prefCode);
+        const newCheckedPrefCodes = new Set(state.checkedPrefCodes);
+        if (newCheckedPrefCodes.has(prefCode)) {
+          newCheckedPrefCodes.delete(prefCode);
         } else {
-          newCheckedPrefectureCodes.add(prefCode);
+          newCheckedPrefCodes.add(prefCode);
         }
-        return { checkedPrefectureCodes: newCheckedPrefectureCodes };
+        return { checkedPrefCodes: newCheckedPrefCodes };
       });
     },
 
     isChecked: (prefCode: number): boolean => {
-      return get().checkedPrefectureCodes.has(prefCode);
+      return get().checkedPrefCodes.has(prefCode);
     },
 
-    resetChecked: () => set({ checkedPrefectureCodes: new Set<number>() }),
+    resetChecked: () => set({ checkedPrefCodes: new Set<number>() }),
   }),
 );
 

@@ -1,6 +1,7 @@
-"use server";
+"use server"
 
 import { PrefecturesResponse } from "@/types";
+import { useQuery } from "@tanstack/react-query";
 
 export const getPrefectures = async (): Promise<PrefecturesResponse> => {
   const response = await fetch(
@@ -13,7 +14,7 @@ export const getPrefectures = async (): Promise<PrefecturesResponse> => {
   );
 
   if (!response.ok) {
-    throw new Error("Network response was not ok" + response.status);
+    throw new Error("Failed to fetch prefectures:" + response.status);
   }
   return response.json() as Promise<PrefecturesResponse>;
 };
