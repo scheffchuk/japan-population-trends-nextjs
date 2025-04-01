@@ -1,7 +1,6 @@
-"use server"
+"use server";
 
 import { PrefecturesResponse } from "@/types";
-import { useQuery } from "@tanstack/react-query";
 
 export const getPrefectures = async (): Promise<PrefecturesResponse> => {
   const response = await fetch(

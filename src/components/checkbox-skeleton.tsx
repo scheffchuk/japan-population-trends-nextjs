@@ -7,7 +7,6 @@ type PrefecturesCheckboxSkeletonProps = {
 
 export default function PrefecturesCheckboxSkeleton({
   isLoading,
-  error,
   hasData,
   children,
 }: PrefecturesCheckboxSkeletonProps) {
