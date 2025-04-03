@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { PopulationCategoryData, TransformedChartData } from "@/types";
 
 export const useTransformedPopulationData = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   queries: any[],
   selectedPrefCodes: number[],
   selectedCategory: string | null,

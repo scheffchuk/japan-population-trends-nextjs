@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { PopulationCategoryData } from "@/types";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useAvailableCategories = (queries: any[]) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
