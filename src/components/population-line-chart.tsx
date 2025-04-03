@@ -1,72 +1,65 @@
-import React from "react";
 import {
   CartesianGrid,
   Legend,
   Line,
   LineChart,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
-import { TransformedChartDataPoint } from "./population-data-card";
+
+import { STROKE_COLORS } from "@/styles/stroke-colors";
+import { TransformedChartData } from "@/types";
+import CustomTooltip from "./ui/custom-tooltip";
+
+const customColors = STROKE_COLORS;
 
 type LineChartProps = {
-  chartData: TransformedChartDataPoint[];
+  chartData: TransformedChartData[];
   selectedPrefCodes: number[];
+  prefectureNames: Record<number, string>;
 };
-
-const COLORS = [
-  "#3b82f6", // blue-500
-  "#ef4444", // red-500
-  "#22c55e", // green-500
-  "#eab308", // yellow-500
-  "#a855f7", // purple-500
-  "#f97316", // orange-500
-  "#6ee7b7", // emerald-300 (like a lighter green)
-  "#7dd3fc", // sky-300 (like a lighter blue)
-  "#fcd34d", // amber-300 (like a lighter orange/yellow)
-  "#fda4af", // rose-300 (like a lighter red/pink)
-  "#bef264", // lime-300
-  "#5eead4", // teal-300
-];
 
 export default function PopulationLineChart({
   chartData,
   selectedPrefCodes,
+  prefectureNames,
 }: LineChartProps) {
-  if (chartData.length === 0 || selectedPrefCodes.length === 0) {
-    return <div>No data to display</div>;
-  }
-
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={chartData}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#4b5563" />
+        <CartesianGrid strokeDasharray="3 3" stroke={customColors.blueGray} />
         <XAxis
           dataKey="year"
           axisLine={false}
           tickLine={false}
           style={{ fontSize: "12px" }}
           tickMargin={5}
-          stroke="#9ca3af"
+          stroke={customColors.blueGray}
           interval="preserveStartEnd"
         />
         <YAxis
           axisLine={false}
           tickLine={false}
           style={{ fontSize: "10px" }}
-          stroke="#9ca3af"
+          stroke={customColors.blueGray}
           tickFormatter={(value: number) => value.toLocaleString()}
           width={52}
         />
-        {/*TODO: <Tooltip/> */}
+        <Tooltip content={<CustomTooltip />} />
         <Legend wrapperStyle={{ fontSize: "12px", paddingTop: "10px" }} />
         {selectedPrefCodes.map((prefCode, index) => (
           <Line
             key={prefCode}
             type="monotone"
-            dataKey={prefCode.toString()} // Ensure dataKey is string
-            stroke={COLORS[index % COLORS.length]} // Use passed colors
+            dataKey={prefCode.toString()}
+            name={prefectureNames[prefCode]}
+            stroke={
+              Object.values(STROKE_COLORS)[
+                index % Object.values(STROKE_COLORS).length
+              ]
+            }
             strokeWidth={2}
             dot={false}
             activeDot={{ r: 6 }}

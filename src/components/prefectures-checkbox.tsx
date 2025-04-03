@@ -1,60 +1,66 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useMemo } from "react";
+
 import useCheckedPrefecturesStore from "@/stores/use-checked-prefectures-store";
-import { getPrefectures } from "@/queries/get-prefectures";
-import PrefecturesCheckboxSkeleton from "./checkbox-skeleton";
+import useExpandedStore from "@/stores/use-checkbox-expansion";
+import { useGetPrefectures } from "@/hooks/use-get-prefectures";
+
+import PrefecturesCheckboxSkeleton from "./ui/checkbox-skeleton";
+import ExpansionButton from "./ui/expansion-button";
+import ResetButton from "./ui/reset-button";
 
 export default function PrefecturesCheckbox() {
+  const checkedPrefCodes = useCheckedPrefecturesStore(
+    (state) => state.checkedPrefCodes,
+  );
+
+  const resetChecked = useCheckedPrefecturesStore(
+    (state) => state.resetChecked,
+  );
+
   const togglePrefCode = useCheckedPrefecturesStore(
     (state) => state.togglePrefCode,
   );
 
   const isChecked = useCheckedPrefecturesStore((state) => state.isChecked);
 
-  useCheckedPrefecturesStore((state) => state.checkedPrefCodes);
+  const { isExpanded, toggleExpand } = useExpandedStore(); // Would it be a global state?
 
-  const resetChecked = useCheckedPrefecturesStore(
-    (state) => state.resetChecked,
+  const { data, isLoading, isError } = useGetPrefectures();
+
+  const isResetDisabled = useMemo(
+    () => checkedPrefCodes.size === 0,
+    [checkedPrefCodes],
   );
-
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["prefectures"],
-    queryFn: getPrefectures,
-  });
-
-  const [isExpanded, setIsExpanded] = useState(false);
-  const toggleExpand = () => {
-    setIsExpanded((prev) => !prev);
-  };
-
-  // TODO: Add a skeleton loader for the states
 
   const hasData = !!data?.result && data.result.length > 0;
 
   return (
     <PrefecturesCheckboxSkeleton
       isLoading={isLoading}
-      error={error}
+      isError={isError}
       hasData={hasData}
     >
-      <div className="flex w-3/4 flex-col items-center justify-center rounded-xl border border-gray-200 bg-white drop-shadow-md">
-        <div className="mt-6 mb-2 flex w-full flex-row items-center justify-between px-4">
-          <span className="text-semibold text-2xl text-gray-950">都道府県</span>
-          <button
-            type="button"
-            onClick={resetChecked}
-            className="transition-full cursor-pointer rounded-lg border border-gray-300 bg-white px-4 py-2 drop-shadow-md hover:bg-gray-200"
-          >
-            <span className="text-gray-950">Reset</span>
-          </button>
+      <div className="flex w-4/5 flex-col items-center justify-center rounded-md bg-white drop-shadow-md dark:bg-gray-800/50">
+        <div className="my-3 flex w-full flex-row items-center justify-between px-4">
+          <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
+            都道府県
+          </span>
+          <ResetButton onReset={resetChecked} isDisabled={isResetDisabled} />
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8">
+        <div className="dark:bg-opacity-20 w-[95%] rounded-full bg-gray-200 py-[0.5px] sm:block dark:bg-gray-700"></div>
+        <div className="grid grid-cols-3 py-8 md:grid-cols-5 lg:grid-cols-8">
           {data?.result
-            ?.slice(0, isExpanded ? data.result.length : 24)
+            ?.slice(
+              0,
+              isExpanded ? data.result.length : data.result.length / 2 + 1,
+            )
             .map((prefecture) => (
-              <div key={prefecture.prefCode} className="m-1 text-gray-950">
+              <div
+                key={prefecture.prefCode}
+                className="m-2 font-semibold text-gray-800 dark:text-gray-50/80"
+              >
                 <input
                   type="checkbox"
                   id={`prefecture-${prefecture.prefCode}`}
@@ -62,23 +68,13 @@ export default function PrefecturesCheckbox() {
                   checked={isChecked(prefecture.prefCode)}
                   onChange={() => togglePrefCode(prefecture.prefCode)}
                 />
-                <label htmlFor={`prefecture-${prefecture.prefCode}`}>
-                  {prefecture.prefName}
-                </label>
+                {prefecture.prefName}
               </div>
             ))}
         </div>
-        <button
-          type="button"
-          onClick={toggleExpand}
-          className="mt-3 mb-4 flex-1 cursor-pointer rounded-lg border border-gray-300 bg-white p-2 text-sm text-gray-900 drop-shadow-md transition-all hover:bg-gray-100"
-        >
-          {isExpanded ? (
-            <span className="items-enter flex flex-row">View Less</span>
-          ) : (
-            <span className="flex flex-row items-center">View More</span>
-          )}
-        </button>
+        <div className="dark:bg-opacity-20 w-[95%] rounded-full bg-gray-200 py-[0.5px] sm:block dark:bg-gray-700"></div>
+
+        <ExpansionButton isExpanded={isExpanded} toggleExpand={toggleExpand} />
       </div>
     </PrefecturesCheckboxSkeleton>
   );
