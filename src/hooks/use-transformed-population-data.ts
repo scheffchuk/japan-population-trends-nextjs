@@ -1,9 +1,13 @@
 import { useMemo } from "react";
-import { PopulationCategoryData, TransformedChartData } from "@/types";
+import {
+  PopulationCategoryData,
+  PopulationCompositionPerYearResponse,
+  TransformedChartData,
+} from "@/types";
+import { UseQueryResult } from "@tanstack/react-query";
 
 export const useTransformedPopulationData = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  queries: any[],
+  queries: UseQueryResult<PopulationCompositionPerYearResponse, Error>[],
   selectedPrefCodes: number[],
   selectedCategory: string | null,
 ): TransformedChartData[] => {

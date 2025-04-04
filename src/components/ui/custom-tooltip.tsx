@@ -1,11 +1,11 @@
 import React from "react";
 
-interface CustomTooltipProps {
+type CustomTooltipProps = {
   active?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload?: any[];
   label?: string | number;
-}
+};
 
 const CustomTooltip: React.FC<CustomTooltipProps> = ({
   active,

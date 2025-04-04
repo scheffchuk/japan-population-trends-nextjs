@@ -11,7 +11,7 @@ export const getPopulationData = async (
         `/api/v1/population/composition/perYear?prefCode=${prefCode}`,
       {
         headers: {
-          "X-API-KEY": process.env.X_API_KEY || "",
+          "X-API-KEY": process.env.X_API_KEY!,
         },
       },
     );

@@ -13,38 +13,42 @@
 - [x] Build chart component
 - [x] Build prefecture checkbox component
 - [x] Build category select component
-- [] Error handling
+- [x] Error handling
 - [x] Add skeleton for two main components
-- [] Add toast?
 - [x] Adjust layout and responsiveness
-- [] Write Tests
+- [x] Write Tests
 - [x] Deployment
 
 ## Notes
 
 ### 3/30 Recap
+
 Finished scaffolding of the app. Implemented Tanstack Query and Zustand for stage management and got the data displayed. Question: Would there be security problems with server action that I used for queries. Get the app deployed.
 
 ### 3/31 Recap
-Did not make much progress. Add reset checkbox feature. Thinking should I use app route for SSR? Maybe add Zod for schema validation? 
+
+Did not make much progress. Add reset checkbox feature. Thinking should I use app route for SSR? Maybe add Zod for schema validation?
 
 ## 4/1 Recap
+
 Have made a lot progress today. Added line chart feature. Successfully get the server side cache working. Built skeletons for card and checkbox. Made the app a little bit not ugly.
 
+## 4/4 Recap
+
+Spent a lot of time on refactoring. Modified the overall UI. Wrote tests with AI. Ready to submit.
 
 ## Key Point Checklist
 
 - [x] Used React(Next.js)
 - [x] Used TypeScript
-- [] Properly type
+- [x] Properly type
 - [x] ESlint
 - [x] Prettier
 - [x] Ensured ESLint and Prettier work together
-- [] Proper code format
-- [] View logic is separated from business logic
-- [] Used semantic HTML elements
-- [] Used Git with clear, meaningful commit messages
-- [] Properly tested
-- [] Set up CI/CD for linting/testing
-- [] Beautiful UI
-
+- [x] Proper code format
+- [?] View logic is separated from business logic
+- [?] Used semantic HTML elements
+- [x] Used Git with clear, meaningful commit messages
+- [?] Properly tested
+- [x] Set up CI/CD for linting/testing
+- [?] Beautiful UI

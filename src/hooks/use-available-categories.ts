@@ -1,8 +1,13 @@
 import { useMemo, useState, useEffect } from "react";
-import { PopulationCategoryData } from "@/types";
+import {
+  PopulationCategoryData,
+  PopulationCompositionPerYearResponse,
+} from "@/types";
+import { UseQueryResult } from "@tanstack/react-query";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useAvailableCategories = (queries: any[]) => {
+export const useAvailableCategories = (
+  queries: UseQueryResult<PopulationCompositionPerYearResponse, Error>[],
+) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const availableCategories = useMemo(() => {
