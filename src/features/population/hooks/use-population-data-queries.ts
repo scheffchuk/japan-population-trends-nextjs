@@ -1,5 +1,5 @@
 import { useQueries } from "@tanstack/react-query";
-import { getPopulationData } from "@/queries/get-population-data";
+import { getPopulationData } from "@/features/population/api/get-population-data";
 
 export const usePopulationQueries = (prefCodes: number[]) => {
   const queries = useQueries({

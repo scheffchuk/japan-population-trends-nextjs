@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useQueries, UseQueryResult } from "@tanstack/react-query";
 import { PopulationCompositionPerYearResponse } from "@/types"; // Adjust import path if needed for mock data type
-import { usePopulationQueries } from "@/hooks/use-population-data-queries";
+import { usePopulationQueries } from "@/features/population/hooks/use-population-data-queries";
 
 jest.mock("@tanstack/react-query", () => ({
   ...jest.requireActual("@tanstack/react-query"),

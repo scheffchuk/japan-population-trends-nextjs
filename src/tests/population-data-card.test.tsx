@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { PopulationDataCard } from "@/components/population-data-card";
-import { useAvailableCategories } from "@/hooks/use-available-categories";
+import { useAvailableCategories } from "@/features/population/hooks/use-available-categories";
+import { PopulationDataCard } from "@/features/population/components/population-data-card";
 
 // --- Mocks for all dependencies ---
 
@@ -21,7 +21,7 @@ jest.mock("@/stores/use-checked-prefectures-store", () => ({
 }));
 
 // Mock the population data queries hook
-jest.mock("@/hooks/use-population-data-queries", () => ({
+jest.mock("@/features/population/hooks/use-population-data-queries", () => ({
   usePopulationQueries: () => ({
     queries: [], // For our purposes, an empty array is fine since transformed hook is separately mocked.
     isLoading: false,
@@ -30,7 +30,7 @@ jest.mock("@/hooks/use-population-data-queries", () => ({
 }));
 
 // Mock the available categories hook
-jest.mock("@/hooks/use-available-categories", () => ({
+jest.mock("@/features/population/hooks/use-available-categories", () => ({
   useAvailableCategories: jest.fn(() => ({
     availableCategories: ["Total", "Youth"],
     selectedCategory: "Total",
@@ -39,7 +39,7 @@ jest.mock("@/hooks/use-available-categories", () => ({
 }));
 
 // Mock the transformed population data hook
-jest.mock("@/hooks/use-transformed-population-data", () => ({
+jest.mock("@/features/population/hooks/use-transformed-population-data", () => ({
   useTransformedPopulationData: () => [
     { year: 2000, 1: 1000, 2: 500 },
     { year: 2005, 1: 1100, 2: 550 },
@@ -47,19 +47,19 @@ jest.mock("@/hooks/use-transformed-population-data", () => ({
 }));
 
 // Mock the get prefectures hook
-jest.mock("@/hooks/use-get-prefectures", () => ({
+jest.mock("@/features/prefectures/hooks/use-get-prefectures", () => ({
   useGetPrefectures: () => ({
     nameMapping: { 1: "Tokyo", 2: "Osaka" },
   }),
 }));
 
 // Stub the PopulationLineChart component so we can detect it
-jest.mock("@/components/population-line-chart", () => () => (
+jest.mock("@/features/population/components/population-line-chart", () => () => (
   <div data-testid="population-line-chart">PopulationLineChart</div>
 ));
 
 // Stub the CardSkeleton component to render its children
-jest.mock("@/components/ui/card-skeleton", () => ({
+jest.mock("@/features/population/components/card-skeleton", () => ({
   CardSkeleton: ({ children, isLoading, errors, hasData }: any) => (
     <div data-testid="card-skeleton">
       {isLoading && <span>Loading...</span>}

@@ -11,7 +11,7 @@ import {
 
 import { STROKE_COLORS } from "@/styles/stroke-colors";
 import { TransformedChartData } from "@/types";
-import CustomTooltip from "./ui/custom-tooltip";
+import CustomTooltip from "../../../components/ui/custom-tooltip";
 
 const customColors = STROKE_COLORS;
 

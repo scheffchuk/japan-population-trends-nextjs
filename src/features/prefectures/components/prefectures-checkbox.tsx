@@ -4,11 +4,10 @@ import React, { useMemo } from "react";
 
 import useCheckedPrefecturesStore from "@/stores/use-checked-prefectures-store";
 import useExpandedStore from "@/stores/use-checkbox-expansion";
-import { useGetPrefectures } from "@/hooks/use-get-prefectures";
-
-import PrefecturesCheckboxSkeleton from "./ui/checkbox-skeleton";
-import ExpansionButton from "./ui/expansion-button";
-import ResetButton from "./ui/reset-button";
+import { useGetPrefectures } from "@/features/prefectures/hooks/use-get-prefectures";
+import PrefecturesCheckboxSkeleton from "@/features/prefectures/components/checkbox-skeleton";
+import ResetButton from "@/components/ui/reset-button";
+import ExpansionButton from "@/components/ui/expansion-button";
 
 export default function PrefecturesCheckbox() {
   const checkedPrefCodes = useCheckedPrefecturesStore(

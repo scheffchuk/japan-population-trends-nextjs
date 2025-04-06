@@ -1,5 +1,5 @@
-import { PopulationDataCard } from "@/components/population-data-card";
-import PrefecturesCheckbox from "@/components/prefectures-checkbox";
+import { PopulationDataCard } from "@/features/population/components/population-data-card";
+import PrefecturesCheckbox from "@/features/prefectures/components/prefectures-checkbox";
 
 export default function App() {
   return (

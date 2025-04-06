@@ -6,7 +6,7 @@ import {
   TransformedChartData,
   PopulationYearData,
 } from "@/types";
-import { useTransformedPopulationData } from "@/hooks/use-transformed-population-data";
+import { useTransformedPopulationData } from "@/features/population/hooks/use-transformed-population-data";
 
 // Helper to create a successful query result
 const createSuccessQuery = (

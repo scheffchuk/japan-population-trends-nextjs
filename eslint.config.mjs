@@ -7,21 +7,18 @@ const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname,
 });
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    overrides: [
-      {
-        files: ["src/tests/**/*.test.{js,jsx,ts,tsx}"],
-        rules: {
-          "react/display-name": "off",
-          "@typescript-eslint/no-unused-vars": "off",
-          "@typescript-eslint/no-explicit-any": "off",
-        },
-      },
-    ],
+    files: ["src/tests/**/*.test.{js,jsx,ts,tsx}"],
+    rules: {
+      "react/display-name": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 ];
 

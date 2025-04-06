@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getPrefectures } from "@/queries/get-prefectures";
+import { getPrefectures } from "@/features/prefectures/api/get-prefectures";
 
 export const useGetPrefectures = () => {
   const { data, isLoading, isError } = useQuery({

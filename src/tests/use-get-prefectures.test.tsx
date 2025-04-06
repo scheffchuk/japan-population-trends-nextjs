@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useQuery } from "@tanstack/react-query";
 import { Prefectures, PrefecturesResponse } from "@/types"; // Adjust the import path
-import { useGetPrefectures } from "@/hooks/use-get-prefectures";
+import { useGetPrefectures } from "@/features/prefectures/hooks/use-get-prefectures";
 
 jest.mock("@tanstack/react-query", () => ({
   ...jest.requireActual("@tanstack/react-query"),

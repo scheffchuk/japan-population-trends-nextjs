@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import PrefecturesCheckbox from "@/components/prefectures-checkbox";
+import PrefecturesCheckbox from "@/features/prefectures/components/prefectures-checkbox";
 
 // Create a global toggleExpandMock instance.
 const toggleExpandMock = jest.fn();
@@ -27,7 +27,7 @@ jest.mock("@/stores/use-checkbox-expansion", () => ({
   }),
 }));
 
-jest.mock("@/hooks/use-get-prefectures", () => ({
+jest.mock("@/features/prefectures/hooks/use-get-prefectures", () => ({
   useGetPrefectures: () => ({
     data: {
       result: [
@@ -42,7 +42,7 @@ jest.mock("@/hooks/use-get-prefectures", () => ({
 
 // Stub sub-components
 jest.mock(
-  "@/components/ui/checkbox-skeleton",
+  "@/features/prefectures/components/checkbox-skeleton",
   () =>
     ({ children, isLoading, isError, hasData }: any) => (
       <div data-testid="checkbox-skeleton">

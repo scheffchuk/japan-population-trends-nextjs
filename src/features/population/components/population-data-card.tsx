@@ -3,13 +3,12 @@
 import React, { useMemo } from "react";
 
 import useCheckedPrefecturesStore from "@/stores/use-checked-prefectures-store";
-import { usePopulationQueries } from "@/hooks/use-population-data-queries";
-import { useAvailableCategories } from "@/hooks/use-available-categories";
-import { useTransformedPopulationData } from "@/hooks/use-transformed-population-data";
-import { useGetPrefectures } from "@/hooks/use-get-prefectures";
-
-import PopulationLineChart from "./population-line-chart";
-import { CardSkeleton } from "./ui/card-skeleton";
+import { usePopulationQueries } from "@/features/population/hooks/use-population-data-queries";
+import { useAvailableCategories } from "@/features/population/hooks/use-available-categories";
+import { useTransformedPopulationData } from "@/features/population/hooks/use-transformed-population-data";
+import { useGetPrefectures } from "@/features/prefectures/hooks/use-get-prefectures";
+import { CardSkeleton } from "@/features/population/components/card-skeleton";
+import PopulationLineChart from "@/features/population/components/population-line-chart";
 
 export const PopulationDataCard = () => {
   const checkedPrefCodesSet = useCheckedPrefecturesStore(
@@ -39,7 +38,7 @@ export const PopulationDataCard = () => {
 
   return (
     <CardSkeleton isLoading={isLoading} errors={errors} hasData={hasChartData}>
-      <div className="mt-10 w-4/5 rounded-xl  bg-white p-4 drop-shadow-xl">
+      <div className="mt-10 w-4/5 rounded-md bg-white p-4 drop-shadow-md">
         <div className="mb-6">
           <div className="flex justify-between">
             <span></span>

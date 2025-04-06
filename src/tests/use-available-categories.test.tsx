@@ -5,7 +5,7 @@ import {
   PopulationCompositionPerYearResponse,
   PopulationYearData,
 } from "@/types";
-import { useAvailableCategories } from "@/hooks/use-available-categories";
+import { useAvailableCategories } from "@/features/population/hooks/use-available-categories";
 
 // Helper type for mock queries
 type MockUseQueryResult = Partial<
