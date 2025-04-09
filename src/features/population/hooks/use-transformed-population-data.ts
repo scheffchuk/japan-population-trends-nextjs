@@ -28,12 +28,18 @@ export const useTransformedPopulationData = (
 
       // Loop over each year's population data.
       categoryData.data.forEach(
-        ({ year, value }: { year: number; value: number }) => {
+        ({ year, value, rate }: { year: number; value: number; rate?: number }) => {
           if (!transformedMap[year]) {
             transformedMap[year] = { year };
           }
-          // Use the prefecture code as the key.
+          // Use the prefecture code as the key for population value
           transformedMap[year][selectedPrefCodes[index]] = value;
+
+          // Store rate data if available
+          if (rate !== undefined) {
+            const rateKey = `${selectedPrefCodes[index]}_rate`;
+            transformedMap[year][rateKey] = rate;
+          }
         },
       );
     });

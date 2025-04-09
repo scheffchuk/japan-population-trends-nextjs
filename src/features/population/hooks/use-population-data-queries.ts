@@ -6,8 +6,8 @@ export const usePopulationQueries = (prefCodes: number[]) => {
     queries: prefCodes.map((prefCode) => ({
       queryKey: ["populationData", prefCode],
       queryFn: () => getPopulationData(prefCode),
-      staleTime: Infinity,
-      gcTime: Infinity,
+      staleTime: 60 * 60 * 24,
+      gcTime: 60 * 60 * 24,
     })),
   });
 

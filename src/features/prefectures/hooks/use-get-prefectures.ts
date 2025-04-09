@@ -6,8 +6,8 @@ export const useGetPrefectures = () => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["prefectures"],
     queryFn: getPrefectures,
-    staleTime: Infinity,
-    gcTime: Infinity,
+    staleTime: 60 * 60 * 24,
+    gcTime: 60 * 60 * 24,
   });
 
   const nameMapping = useMemo(() => {

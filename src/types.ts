@@ -31,5 +31,5 @@ export type PopulationCompositionPerYearResponse = {
 
 export type TransformedChartData = {
   year: number;
-  [prefCode: number]: number;
+  [key: string]: number;
 };

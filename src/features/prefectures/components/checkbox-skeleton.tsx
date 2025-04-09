@@ -4,14 +4,12 @@ type PrefecturesCheckboxSkeletonProps = {
   isLoading: boolean;
   isError: boolean;
   hasData: boolean;
-  children: React.ReactNode;
 };
 
 export default function PrefecturesCheckboxSkeleton({
   isLoading,
   isError,
   hasData,
-  children,
 }: PrefecturesCheckboxSkeletonProps) {
   if (isLoading) {
     return (
@@ -61,8 +59,7 @@ export default function PrefecturesCheckboxSkeleton({
     );
   }
 
-  // No Data State (Consolidated)
-  // Note: You had two identical !hasData checks, I've removed the duplicate.
+  // No Data State
   if (!hasData) {
     return (
       <div className="flex w-4/5 flex-col items-center justify-center rounded-md bg-gray-50 p-6 text-gray-500 drop-shadow-xl dark:bg-gray-800/50">
@@ -73,8 +70,4 @@ export default function PrefecturesCheckboxSkeleton({
       </div>
     );
   }
-
-  // Data Loaded State
-  // If not loading, not error, and has data, render the actual component
-  return <>{children}</>;
 }

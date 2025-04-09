@@ -10,6 +10,9 @@ export const getPrefectures = async (): Promise<PrefecturesResponse> => {
         headers: {
           "X-API-KEY": process.env.X_API_KEY!,
         },
+        next: {
+          revalidate: 60 * 60 * 24, // 24 hours
+        },
       },
     );
 
