@@ -101,7 +101,9 @@ describe("PrefecturesCheckboxClient", () => {
 
   it("calls togglePrefCode when a checkbox is clicked", () => {
     render(<PrefecturesCheckboxClient prefectures={mockPrefectures} />);
-    const checkbox = document.getElementById("prefecture-1") as HTMLInputElement;
+    const checkbox = document.getElementById(
+      "prefecture-1",
+    ) as HTMLInputElement;
     fireEvent.click(checkbox);
     expect(togglePrefCodeMock).toHaveBeenCalledWith(1);
   });

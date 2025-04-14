@@ -28,7 +28,15 @@ export const useTransformedPopulationData = (
 
       // Loop over each year's population data.
       categoryData.data.forEach(
-        ({ year, value, rate }: { year: number; value: number; rate?: number }) => {
+        ({
+          year,
+          value,
+          rate,
+        }: {
+          year: number;
+          value: number;
+          rate?: number;
+        }) => {
           if (!transformedMap[year]) {
             transformedMap[year] = { year };
           }

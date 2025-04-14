@@ -39,12 +39,15 @@ jest.mock("@/features/population/hooks/use-available-categories", () => ({
 }));
 
 // Mock the transformed population data hook
-jest.mock("@/features/population/hooks/use-transformed-population-data", () => ({
-  useTransformedPopulationData: () => [
-    { year: 2000, 1: 1000, 2: 500 },
-    { year: 2005, 1: 1100, 2: 550 },
-  ],
-}));
+jest.mock(
+  "@/features/population/hooks/use-transformed-population-data",
+  () => ({
+    useTransformedPopulationData: () => [
+      { year: 2000, 1: 1000, 2: 500 },
+      { year: 2005, 1: 1100, 2: 550 },
+    ],
+  }),
+);
 
 // Mock the get prefectures hook
 jest.mock("@/features/prefectures/hooks/use-get-prefectures", () => ({
@@ -54,9 +57,12 @@ jest.mock("@/features/prefectures/hooks/use-get-prefectures", () => ({
 }));
 
 // Stub the PopulationLineChart component so we can detect it
-jest.mock("@/features/population/components/population-line-chart", () => () => (
-  <div data-testid="population-line-chart">PopulationLineChart</div>
-));
+jest.mock(
+  "@/features/population/components/population-line-chart",
+  () => () => (
+    <div data-testid="population-line-chart">PopulationLineChart</div>
+  ),
+);
 
 // Stub the CardSkeleton component to render its children
 jest.mock("@/features/population/components/card-skeleton", () => ({

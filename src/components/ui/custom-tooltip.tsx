@@ -33,7 +33,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({
               {entry.name}: {entry.value.toLocaleString()}
             </p>
             {rateValue !== undefined && (
-              <p className="ml-4 my-1 text-gray-600">
+              <p className="my-1 ml-4 text-gray-600">
                 ({rateValue.toFixed(2)}%)
               </p>
             )}

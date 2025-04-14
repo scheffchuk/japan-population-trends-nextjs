@@ -42,6 +42,7 @@ export default function PrefecturesCheckbox({ prefectures }: Props) {
         </span>
         <ResetButton onReset={resetChecked} isDisabled={isResetDisabled} />
       </div>
+      {/* This can be refactored into a Divider component */}
       <div className="dark:bg-opacity-20 w-[95%] rounded-full bg-gray-200 py-[0.5px] sm:block dark:bg-gray-700"></div>
       <div className="grid grid-cols-3 py-8 md:grid-cols-5 lg:grid-cols-8">
         {prefectures
@@ -54,14 +55,15 @@ export default function PrefecturesCheckbox({ prefectures }: Props) {
               key={prefecture.prefCode}
               className="m-2 font-semibold text-gray-800 dark:text-gray-50/80"
             >
-              <input
-                type="checkbox"
-                id={`prefecture-${prefecture.prefCode}`}
-                className="mr-1"
-                checked={isChecked(prefecture.prefCode)}
-                onChange={() => togglePrefCode(prefecture.prefCode)}
-              />
-              {prefecture.prefName}
+              <label className="flex items-center hover:cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="mr-1"
+                  checked={isChecked(prefecture.prefCode)}
+                  onChange={() => togglePrefCode(prefecture.prefCode)}
+                />
+                {prefecture.prefName}
+              </label>
             </div>
           ))}
       </div>

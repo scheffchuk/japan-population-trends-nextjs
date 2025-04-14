@@ -56,8 +56,8 @@ export default function PopulationLineChart({
             dataKey={prefCode.toString()}
             name={prefectureNames[prefCode]}
             stroke={
-              Object.values(STROKE_COLORS)[
-                index % Object.values(STROKE_COLORS).length
+              Object.values(customColors)[
+                index % Object.values(customColors).length
               ]
             }
             strokeWidth={2}
