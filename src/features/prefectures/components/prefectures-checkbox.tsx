@@ -53,12 +53,12 @@ export default function PrefecturesCheckbox({ prefectures }: Props) {
           .map((prefecture) => (
             <div
               key={prefecture.prefCode}
-              className="m-2 font-semibold text-gray-800 dark:text-gray-50/80"
+              className="text-gray-[750] m-2 font-semibold dark:text-gray-50/80"
             >
               <label className="flex items-center hover:cursor-pointer">
                 <input
                   type="checkbox"
-                  className="mr-1"
+                  className="mr-1 hover:cursor-pointer"
                   checked={isChecked(prefecture.prefCode)}
                   onChange={() => togglePrefCode(prefecture.prefCode)}
                 />

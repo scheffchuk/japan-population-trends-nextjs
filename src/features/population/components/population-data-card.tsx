@@ -9,8 +9,10 @@ import { useTransformedPopulationData } from "@/features/population/hooks/use-tr
 import { useGetPrefectures } from "@/features/prefectures/hooks/use-get-prefectures";
 import { CardSkeleton } from "@/features/population/components/card-skeleton";
 import PopulationLineChart from "@/features/population/components/population-line-chart";
+import { useUrlState } from "@/features/prefectures/hooks/use-url-state";
 
 export const PopulationDataCard = () => {
+  useUrlState();
   const checkedPrefCodesSet = useCheckedPrefecturesStore(
     (state) => state.checkedPrefCodes,
   );

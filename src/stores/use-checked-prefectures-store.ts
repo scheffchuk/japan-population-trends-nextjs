@@ -5,6 +5,7 @@ type CheckedPrefecturesStore = {
   togglePrefCode: (prefCode: number) => void;
   isChecked: (prefCode: number) => boolean;
   resetChecked: () => void;
+  initializeFromUrl: (prefCodes: number[]) => void;
 };
 
 const useCheckedPrefecturesStore = create<CheckedPrefecturesStore>(
@@ -28,6 +29,9 @@ const useCheckedPrefecturesStore = create<CheckedPrefecturesStore>(
     },
 
     resetChecked: () => set({ checkedPrefCodes: new Set<number>() }),
+
+    initializeFromUrl: (prefCodes: number[]) =>
+      set({ checkedPrefCodes: new Set(prefCodes) }),
   }),
 );
 
