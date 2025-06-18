@@ -35,7 +35,7 @@ export default function PrefecturesCheckbox({ prefectures }: Props) {
   );
 
   return (
-    <div className="flex w-4/5 flex-col items-center justify-center rounded-md bg-white drop-shadow-md dark:bg-gray-800/50">
+    <div className="flex w-4/5 flex-col items-center justify-center rounded-md bg-white/90 drop-shadow-md dark:bg-gray-800/50">
       <div className="my-3 flex w-full flex-row items-center justify-between px-4">
         <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
           都道府県
@@ -53,7 +53,7 @@ export default function PrefecturesCheckbox({ prefectures }: Props) {
           .map((prefecture) => (
             <div
               key={prefecture.prefCode}
-              className="text-gray-[750] m-2 font-semibold dark:text-gray-50/80"
+              className="m-2 font-semibold text-gray-800 dark:text-gray-50/80"
             >
               <label className="flex items-center hover:cursor-pointer">
                 <input
