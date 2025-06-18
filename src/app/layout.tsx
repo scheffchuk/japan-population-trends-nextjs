@@ -25,13 +25,13 @@ export default function RootLayout({
   return (
     <html lang="ja" className="h-full">
       <body
-        className={`${geistSans.variable} flex min-h-screen flex-col bg-gray-50 antialiased`}
+        className={`${geistSans.variable} light:bg-gradient-to-br flex min-h-screen flex-col`}
       >
-        <Header />
-        <main className="flex-grow">
+        <main className="flex-grow bg-gradient-to-br from-slate-50 to-slate-100 antialiased dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-gray-200">
+          <Header />
           <QueryProvider>{children}</QueryProvider>
+          <Footer />
         </main>
-        <Footer />
       </body>
     </html>
   );

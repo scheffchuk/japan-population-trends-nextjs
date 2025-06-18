@@ -40,7 +40,7 @@ export const PopulationDataCard = () => {
 
   return (
     <CardSkeleton isLoading={isLoading} errors={errors} hasData={hasChartData}>
-      <div className="mt-10 w-4/5 rounded-md bg-white p-4 drop-shadow-md">
+      <div className="mt-10 w-10/12 rounded-md bg-white p-4 drop-shadow-md">
         {/* I can refactor this part into a category select component */}
         <div className="mb-6">
           <div className="flex justify-between">
